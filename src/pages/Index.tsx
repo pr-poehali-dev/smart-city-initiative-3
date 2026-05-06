@@ -72,10 +72,10 @@ const Index = () => {
 
           <div className="flex items-center gap-3">
             <a
-              href="tel:88005113612"
+              href="tel:+79993309686"
               className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
             >
-              8 (800) 511-36-12
+              +7 (999) 330-96-86
             </a>
             <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">Получить КП</Button>
           </div>
