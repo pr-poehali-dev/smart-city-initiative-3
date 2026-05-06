@@ -159,52 +159,59 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-12">
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Серия ParkRay</h2>
+              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Серия OstovPark</h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto text-pretty">
-                Светильники для парков, скверов, пешеходных зон и придомовых территорий.
+                Парковые светодиодные светильники IP65 для парков, скверов, пешеходных зон и придомовых территорий.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
-                <div className="flex-1">
-                  <div className="text-3xl font-bold text-white/60 mb-4">20 Вт</div>
-                  <h3 className="text-xl font-semibold mb-4">ParkRay BL1 Mini</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    Компактный светильник для дорожек, аллей и входных групп. Световой поток 2 400 лм. Цветовая температура 4000К.
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {[
+                {
+                  name: "OstovPark C1-8",
+                  img: "https://extrl.ru/upload/resize_cache/iblock/313/hcc61bmu12vqibbeccf3jhrokzfbr8wa/1000_540_1/ParkRay%20BL1A%20L1000_300.4373%20(1152%D1%851080).png",
+                  desc: "Классическая форма для аллей и пешеходных дорожек. Равномерное рассеивание света, защита IP65.",
+                },
+                {
+                  name: "OstovPark K1-8",
+                  img: "https://extrl.ru/upload/iblock/7e1/zzd1ot0ygurirppi067c8yjhfjtb2dgq/PR%20BL1DT1_500%20(1000%D1%85540)%20%D1%81%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B8.4532.png",
+                  desc: "Современный дизайн для парков и скверов. Оптика европейского качества, долгий срок службы.",
+                },
+                {
+                  name: "OstovPark X1-8",
+                  img: "https://extrl.ru/upload/resize_cache/iblock/e3b/ncc2gch3a0uzgeagentorxmxdcv2iwcc/1000_540_1/%D0%90%D0%AD%D0%9A-101_25.0822%20%D0%A1%D0%B2%D0%B5%D1%82%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%204%20%D0%BC%20120%20%D0%B3%D1%80%202%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B0%20(1152%D1%851080).png",
+                  desc: "X-образная конструкция на 2 блока. Подходит для освещения широких зон и перекрёстков дорожек.",
+                },
+                {
+                  name: "OstovPark L1-8",
+                  img: "https://extrl.ru/upload/resize_cache/iblock/610/jm0t0keh7aak23a09c7tfh8nnxbcxb5r/1000_540_1/%D0%90%D0%AD%D0%9A-101_03.0822%20(%D0%A1%D0%B2%D0%B5%D1%82%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%204%20%D0%BC).18%20(1152%D1%851080).png",
+                  desc: "L-образная форма для монтажа на опору у стен и ограждений. Направленный световой поток.",
+                },
+                {
+                  name: "OstovPark Y1-8",
+                  img: "https://extrl.ru/upload/resize_cache/iblock/a5d/zicyerh47tdjwrndg685fl8gnifgvsw6/1000_540_1/%D0%90%D0%AD%D0%9A-101_31.0822%20%D0%A1%D0%B2%D0%B5%D1%82%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%204%20%D0%BC%20Y-%D0%BE%D0%B1%D1%80%204%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B0.png",
+                  desc: "Y-образная конструкция на 4 блока. Максимальное покрытие для больших парковых территорий.",
+                },
+              ].map((product) => (
+                <div key={product.name} className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur overflow-hidden flex flex-col">
+                  <div className="bg-white/10 h-52 overflow-hidden">
+                    <img
+                      src={product.img}
+                      alt={product.name}
+                      className="w-full h-full object-contain p-4"
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="text-xs font-medium text-white/50 uppercase tracking-widest mb-2">IP65</div>
+                    <h3 className="text-lg font-semibold mb-3">Парковый светодиодный светильник {product.name}</h3>
+                    <p className="text-white/70 text-sm leading-relaxed flex-1">{product.desc}</p>
+                    <Button className="mt-4 w-full bg-white/10 hover:bg-white/20 text-white border-0 rounded-lg text-sm">
+                      Запросить цену
+                    </Button>
+                  </div>
                 </div>
-              </div>
-
-              <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
-                <div className="flex-1">
-                  <div className="text-3xl font-bold text-white/60 mb-4">40 Вт</div>
-                  <h3 className="text-xl font-semibold mb-4">ParkRay BL1</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    Универсальная модель для парковых зон. Световой поток 5 200 лм. Угол рассеивания 120°. Монтаж на опору или кронштейн.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
-                <div className="flex-1">
-                  <div className="text-3xl font-bold text-white/60 mb-4">80 Вт</div>
-                  <h3 className="text-xl font-semibold mb-4">ParkRay BL1 Max</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    Для крупных парков и площадей. Световой поток 10 400 лм. Высота установки до 12 м. Диммирование 0–10В.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
-                <div className="flex-1">
-                  <div className="text-3xl font-bold text-white/60 mb-4">120 Вт</div>
-                  <h3 className="text-xl font-semibold mb-4">ParkRay BL1 Pro</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    Профессиональный светильник для освещения улиц и больших территорий. Световой поток 15 600 лм. Управление DALI.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div className="text-center">
