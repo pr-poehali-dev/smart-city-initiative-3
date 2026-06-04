@@ -81,7 +81,7 @@ const products = [
   },
   {
     name: "OstovPark T1-8",
-    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/a7229b91-7d48-4c96-a110-224ae8aeb247.png",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/245f35a8-0749-415d-8903-07d4a8b2a9e1.png",
     desc: "Т-образная конструкция с двумя световыми блоками. Освещение аллей и широких пешеходных зон.",
   },
   {
