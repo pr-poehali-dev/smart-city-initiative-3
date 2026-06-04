@@ -91,7 +91,7 @@ const products = [
   },
   {
     name: "OstovPark Q1-8",
-    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92a698f7-8544-4f93-92c9-b02a2324f6ef.png",
     desc: "Четырёхсторонняя конструкция для равномерного освещения больших открытых пространств.",
   },
   {
