@@ -109,6 +109,11 @@ const products = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/dd49d57d-ba8f-49c9-a681-d757c505c905.png",
     desc: "Y-образная конструкция с двумя световыми блоками. Стильное решение для аллей и парковых зон.",
   },
+  {
+    name: "OstovPark CX1-8",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/812ff3f2-0391-4f5f-9432-0fa13f82dc48.png",
+    desc: "Изогнутая конструкция с одним световым блоком. Элегантный дизайн для парков и пешеходных зон.",
+  },
 ]
 
 const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
