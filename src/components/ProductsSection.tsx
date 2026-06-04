@@ -86,7 +86,7 @@ const products = [
   },
   {
     name: "OstovPark Triple1-8",
-    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/d6c6f88c-6885-424e-9f0f-797deb3447c4.png",
     desc: "Тройная конструкция с тремя световыми блоками. Для освещения перекрёстков и площадей.",
   },
   {
