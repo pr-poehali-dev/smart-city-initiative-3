@@ -96,7 +96,7 @@ const products = [
   },
   {
     name: "OstovPark CL1-8",
-    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/4f8a3ec4-47e1-428e-86be-2fd58987682f.png",
     desc: "Компактная модель с одним направленным блоком. Для входных групп и узких дорожек.",
   },
   {
