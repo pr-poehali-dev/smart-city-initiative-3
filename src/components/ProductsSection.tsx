@@ -104,6 +104,11 @@ const products = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/59e541c0-e9b3-484c-9abc-df25bef7c465.png",
     desc: "Комбинированная конструкция с верхним и боковым блоком. Универсальное решение для парков.",
   },
+  {
+    name: "OstovPark CY1-8",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/dd49d57d-ba8f-49c9-a681-d757c505c905.png",
+    desc: "Y-образная конструкция с двумя световыми блоками. Стильное решение для аллей и парковых зон.",
+  },
 ]
 
 const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
