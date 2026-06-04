@@ -79,6 +79,31 @@ const products = [
     img: "https://extrl.ru/upload/resize_cache/iblock/a5d/zicyerh47tdjwrndg685fl8gnifgvsw6/1000_540_1/%D0%90%D0%AD%D0%9A-101_31.0822%20%D0%A1%D0%B2%D0%B5%D1%82%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%204%20%D0%BC%20Y-%D0%BE%D0%B1%D1%80%204%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B0.png",
     desc: "Y-образная конструкция на 4 блока. Максимальное покрытие для больших парковых территорий.",
   },
+  {
+    name: "OstovPark T1-8",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    desc: "Т-образная конструкция с двумя световыми блоками. Освещение аллей и широких пешеходных зон.",
+  },
+  {
+    name: "OstovPark Triple1-8",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    desc: "Тройная конструкция с тремя световыми блоками. Для освещения перекрёстков и площадей.",
+  },
+  {
+    name: "OstovPark Q1-8",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    desc: "Четырёхсторонняя конструкция для равномерного освещения больших открытых пространств.",
+  },
+  {
+    name: "OstovPark CL1-8",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    desc: "Компактная модель с одним направленным блоком. Для входных групп и узких дорожек.",
+  },
+  {
+    name: "OstovPark CT1-8",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/f3de18f3-ceba-491b-aa7a-64b289a7d75b.jpg",
+    desc: "Комбинированная конструкция с верхним и боковым блоком. Универсальное решение для парков.",
+  },
 ]
 
 const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
