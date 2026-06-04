@@ -35,27 +35,27 @@ const FaqSection = () => {
   return (
     <section className="relative z-10 py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-12">
+        <div className="rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Частые вопросы</h2>
-              <p className="text-xl text-white/80 leading-relaxed text-pretty">
+              <p className="text-xl text-white/90 leading-relaxed text-pretty">
                 Всё о наших светильниках: характеристики, покраска, гарантия, работа с организациями и тендерами.
               </p>
             </div>
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur overflow-hidden">
+                <div key={index} className="rounded-2xl bg-white/10 ring-1 ring-white/15 backdrop-blur overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                    className="w-full p-6 text-left flex items-center justify-between hover:bg-white/10 transition-colors"
                   >
                     <h3 className="text-lg font-semibold pr-4">{faq.question}</h3>
                     {openFaq === index ? <Minus className="w-5 h-5 flex-shrink-0" /> : <Plus className="w-5 h-5 flex-shrink-0" />}
                   </button>
                   {openFaq === index && (
                     <div className="px-6 pb-6">
-                      <p className="text-white/80 leading-relaxed">{faq.answer}</p>
+                      <p className="text-white/90 leading-relaxed">{faq.answer}</p>
                     </div>
                   )}
                 </div>

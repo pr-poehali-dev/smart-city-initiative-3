@@ -14,7 +14,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           backgroundImage: `url(https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/files/b2792526-308b-43d7-8d05-cfbac0242327.jpg)`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-black/60" />
       </div>
 
       <nav className="relative z-10 flex items-center justify-between p-6">

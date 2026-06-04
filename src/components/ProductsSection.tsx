@@ -102,7 +102,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
       {modal.open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
-          <div className="relative w-full max-w-md bg-[#161b22] ring-1 ring-white/15 rounded-3xl p-8 shadow-2xl">
+          <div className="relative w-full max-w-md bg-[#2a3347] ring-1 ring-white/20 rounded-3xl p-8 shadow-2xl">
             <button
               onClick={closeModal}
               className="absolute top-4 right-4 p-2 rounded-full hover:bg-white/10 transition-colors"
@@ -176,18 +176,18 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-12">
+          <div className="rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur p-12">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Серия OstovPark</h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto text-pretty">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto text-pretty">
                 Парковые светодиодные светильники IP65 для парков, скверов, пешеходных зон и придомовых территорий.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {products.map((product) => (
-                <div key={product.name} className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur overflow-hidden flex flex-col">
-                  <div className="bg-white/10 h-52 overflow-hidden">
+                <div key={product.name} className="rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur overflow-hidden flex flex-col">
+                  <div className="bg-white/15 h-52 overflow-hidden">
                     <img
                       src={product.img}
                       alt={product.name}
@@ -196,12 +196,12 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <div className="text-xs font-medium text-white/50 uppercase tracking-widest mb-2">IP65</div>
+                    <div className="text-xs font-medium text-white/60 uppercase tracking-widest mb-2">IP65</div>
                     <h3 className="text-lg font-semibold mb-3">Парковый светодиодный светильник {product.name}</h3>
-                    <p className="text-white/70 text-sm leading-relaxed flex-1">{product.desc}</p>
+                    <p className="text-white/85 text-sm leading-relaxed flex-1">{product.desc}</p>
                     <Button
                       onClick={() => openModal(`Парковый светодиодный светильник ${product.name}`)}
-                      className="mt-4 w-full bg-white/10 hover:bg-white/20 text-white border-0 rounded-lg text-sm"
+                      className="mt-4 w-full bg-white/20 hover:bg-white/30 text-white border-0 rounded-lg text-sm"
                     >
                       Запросить цену
                     </Button>

@@ -104,7 +104,7 @@ const ContactSection = () => {
     <>
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-3xl bg-black/20 ring-1 ring-white/15 backdrop-blur p-12">
+          <div className="rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur p-12">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Свяжитесь с нами</h2>
             </div>
@@ -136,17 +136,17 @@ const ContactSection = () => {
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 text-center">
+                  <div className="rounded-2xl bg-white/10 ring-1 ring-white/20 p-6 text-center">
                     <div className="text-3xl font-bold mb-2">10+</div>
-                    <p className="text-white/70 text-sm">лет на рынке</p>
+                    <p className="text-white/80 text-sm">лет на рынке</p>
                   </div>
-                  <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 text-center">
+                  <div className="rounded-2xl bg-white/10 ring-1 ring-white/20 p-6 text-center">
                     <div className="text-3xl font-bold mb-2">5000+</div>
-                    <p className="text-white/70 text-sm">объектов сдано</p>
+                    <p className="text-white/80 text-sm">объектов сдано</p>
                   </div>
-                  <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 text-center">
+                  <div className="rounded-2xl bg-white/10 ring-1 ring-white/20 p-6 text-center">
                     <div className="text-3xl font-bold mb-2">5 лет</div>
-                    <p className="text-white/70 text-sm">гарантия</p>
+                    <p className="text-white/80 text-sm">гарантия</p>
                   </div>
                 </div>
               </div>
