@@ -1,12 +1,16 @@
 import { X, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useImperativeHandle, forwardRef } from "react"
 
 const SEND_URL = "https://functions.poehali.dev/1dff2903-7852-4d42-8659-930221875f94"
 
 interface ModalState {
   open: boolean
   product: string
+}
+
+export interface ProductsSectionRef {
+  openModal: (product: string) => void
 }
 
 const useRequestForm = () => {
@@ -77,7 +81,7 @@ const products = [
   },
 ]
 
-const ProductsSection = () => {
+const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
   const [modal, setModal] = useState<ModalState>({ open: false, product: "" })
   const form = useRequestForm()
 
@@ -90,6 +94,8 @@ const ProductsSection = () => {
     setModal({ open: false, product: "" })
     form.reset()
   }
+
+  useImperativeHandle(ref, () => ({ openModal }))
 
   return (
     <>
@@ -217,6 +223,8 @@ const ProductsSection = () => {
       </section>
     </>
   )
-}
+})
+
+ProductsSection.displayName = "ProductsSection"
 
 export default ProductsSection
