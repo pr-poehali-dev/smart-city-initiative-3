@@ -236,12 +236,14 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
             </div>
 
             <div className="text-center">
-              <Button
-                size="lg"
-                className="bg-white text-black hover:bg-white/90 rounded-full px-12 py-4 text-lg font-semibold"
-              >
-                Скачать полный каталог
-              </Button>
+              <a href="https://cloud.mail.ru/public/9Unf/Nw17VWLCi" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="bg-white text-black hover:bg-white/90 rounded-full px-12 py-4 text-lg font-semibold"
+                >
+                  Скачать полный каталог
+                </Button>
+              </a>
             </div>
           </div>
         </div>
