@@ -214,7 +214,7 @@ const Index = () => {
         <nav className="relative z-10 flex items-center justify-between p-6">
           <div className="flex items-center gap-2 px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full">
             <Icon name="Zap" size={18} />
-            <span className="font-medium">ExterLight</span>
+            <span className="font-medium">Остов</span>
           </div>
 
           <div className="hidden md:flex items-center gap-1">
@@ -252,7 +252,7 @@ const Index = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-white/90 max-w-4xl mb-12 leading-relaxed text-pretty">
-            Парковые и уличные светодиодные светильники OstovPark — европейская оптика и диоды, покраска в любой цвет, поставка по всей России и СНГ.
+            Парковые и уличные светодиодные светильники OstovPark — европейская оптика и диоды, покраска в любой цвет, поставка по всей России и СНГ. Производитель — компания Остов.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
@@ -417,7 +417,7 @@ const Index = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold">Отдел продаж</h4>
-                      <p className="text-gray-600">ExterLight — производитель</p>
+                      <p className="text-gray-600">Остов — производитель</p>
                     </div>
                   </div>
                   <a href="tel:+79993309686">
@@ -453,10 +453,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Icon name="Zap" size={18} />
-            <span className="font-medium">ExterLight</span>
+            <span className="font-medium">Остов</span>
           </div>
           <p className="text-white/50 text-sm text-center">
-            © 2024 ExterLight. Производитель светодиодных светильников. Доставка по России и СНГ.
+            © 2024 Остов. Производитель светодиодных светильников. Доставка по России и СНГ.
           </p>
           <a href="tel:+79993309686" className="text-white/70 hover:text-white transition-colors">
             +7 (999) 330-96-86

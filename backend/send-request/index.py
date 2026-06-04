@@ -42,7 +42,7 @@ def handler(event: dict, context) -> dict:
     msg['To'] = smtp_user
 
     html = f"""
-    <h2>Новая заявка с сайта ExterLight</h2>
+    <h2>Новая заявка с сайта Остов</h2>
     <table style="border-collapse:collapse;width:100%;max-width:500px">
       <tr><td style="padding:8px;background:#f5f5f5;font-weight:bold">Имя / организация</td><td style="padding:8px;border:1px solid #ddd">{name}</td></tr>
       <tr><td style="padding:8px;background:#f5f5f5;font-weight:bold">Телефон</td><td style="padding:8px;border:1px solid #ddd">{phone}</td></tr>
