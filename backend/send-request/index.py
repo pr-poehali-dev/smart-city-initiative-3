@@ -25,6 +25,7 @@ def handler(event: dict, context) -> dict:
     phone = body.get('phone', '').strip()
     message = body.get('message', '').strip()
     product = body.get('product', '').strip()
+    file_url = body.get('file_url', '').strip()
 
     if not name or not phone:
         return {
@@ -48,6 +49,7 @@ def handler(event: dict, context) -> dict:
       <tr><td style="padding:8px;background:#f5f5f5;font-weight:bold">Телефон</td><td style="padding:8px;border:1px solid #ddd">{phone}</td></tr>
       {'<tr><td style="padding:8px;background:#f5f5f5;font-weight:bold">Интересует</td><td style="padding:8px;border:1px solid #ddd">' + product + '</td></tr>' if product else ''}
       {'<tr><td style="padding:8px;background:#f5f5f5;font-weight:bold">Сообщение</td><td style="padding:8px;border:1px solid #ddd">' + message + '</td></tr>' if message else ''}
+      {'<tr><td style="padding:8px;background:#f5f5f5;font-weight:bold">Прикреплённый файл</td><td style="padding:8px;border:1px solid #ddd"><a href="' + file_url + '">' + file_url + '</a></td></tr>' if file_url else ''}
     </table>
     """
 

@@ -1,8 +1,9 @@
-import { X, CheckCircle } from "lucide-react"
+import { X, CheckCircle, Paperclip } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState, useImperativeHandle, forwardRef } from "react"
+import { useState, useImperativeHandle, forwardRef, useRef } from "react"
 
 const SEND_URL = "https://functions.poehali.dev/1dff2903-7852-4d42-8659-930221875f94"
+const UPLOAD_URL = "https://functions.poehali.dev/2e76e395-e976-4652-b649-6e22e1dd48c1"
 
 interface ModalState {
   open: boolean
@@ -17,12 +18,13 @@ const useRequestForm = () => {
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [message, setMessage] = useState("")
+  const [file, setFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState("")
 
   const reset = () => {
-    setName(""); setPhone(""); setMessage(""); setSuccess(false); setError("")
+    setName(""); setPhone(""); setMessage(""); setFile(null); setSuccess(false); setError("")
   }
 
   const submit = async (product: string) => {
@@ -33,10 +35,25 @@ const useRequestForm = () => {
     setLoading(true)
     setError("")
     try {
+      let file_url = ""
+      if (file) {
+        const buf = await file.arrayBuffer()
+        const b64 = btoa(String.fromCharCode(...new Uint8Array(buf)))
+        const upRes = await fetch(UPLOAD_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ file_data: b64, file_name: file.name, file_type: file.type }),
+        })
+        if (upRes.ok) {
+          const upData = await upRes.json()
+          file_url = upData.url || ""
+        }
+      }
+
       const res = await fetch(SEND_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, message, product }),
+        body: JSON.stringify({ name, phone, message, product, file_url }),
       })
       if (res.ok) {
         setSuccess(true)
@@ -50,7 +67,7 @@ const useRequestForm = () => {
     }
   }
 
-  return { name, setName, phone, setPhone, message, setMessage, loading, success, error, reset, submit }
+  return { name, setName, phone, setPhone, message, setMessage, file, setFile, loading, success, error, reset, submit }
 }
 
 const products = [
@@ -119,6 +136,7 @@ const products = [
 const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
   const [modal, setModal] = useState<ModalState>({ open: false, product: "" })
   const form = useRequestForm()
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const openModal = (product: string) => {
     form.reset()
@@ -189,6 +207,29 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                       className="w-full px-4 py-3 rounded-xl bg-white/5 ring-1 ring-white/15 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/40 resize-none"
                       placeholder="Количество, объект, сроки..."
                     />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-white/70 mb-1">Прикрепить файл</label>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      className="hidden"
+                      accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.zip"
+                      onChange={e => form.setFile(e.target.files?.[0] ?? null)}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="flex items-center gap-2 w-full px-4 py-3 rounded-xl bg-white/5 ring-1 ring-white/15 text-white/60 hover:bg-white/10 hover:text-white transition-colors text-sm text-left"
+                    >
+                      <Paperclip className="w-4 h-4 shrink-0" />
+                      {form.file ? (
+                        <span className="text-white truncate">{form.file.name}</span>
+                      ) : (
+                        <span>Техзадание, план, фото объекта...</span>
+                      )}
+                    </button>
                   </div>
 
                   {form.error && (
