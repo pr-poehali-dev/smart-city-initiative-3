@@ -37,10 +37,10 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
 
         <div className="flex items-center gap-3">
           <a
-            href="tel:+79993309686"
+            href="tel:88002013733"
             className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
           >
-            +7 (999) 330-96-86
+            8 (800) 201-37-33
           </a>
           <Button onClick={() => onOpenModal("Коммерческое предложение")} className="bg-white text-black hover:bg-white/90 rounded-full px-6">
             Получить КП

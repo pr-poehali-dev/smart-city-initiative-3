@@ -127,10 +127,10 @@ const ContactSection = () => {
                       <p className="text-gray-600">Остов — производитель</p>
                     </div>
                   </div>
-                  <a href="tel:+79993309686">
+                  <a href="tel:88002013733">
                     <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-lg flex items-center justify-center gap-2 py-3">
                       <Icon name="Phone" size={16} />
-                      +7 (999) 330-96-86
+                      8 (800) 201-37-33
                     </Button>
                   </a>
                 </div>
@@ -164,8 +164,8 @@ const ContactSection = () => {
           <p className="text-white/50 text-sm text-center">
             © 2024 Остов. Производитель светодиодных светильников. Доставка по России и СНГ.
           </p>
-          <a href="tel:+79993309686" className="text-white/70 hover:text-white transition-colors">
-            +7 (999) 330-96-86
+          <a href="tel:88002013733" className="text-white/70 hover:text-white transition-colors">
+            8 (800) 201-37-33
           </a>
         </div>
       </footer>
