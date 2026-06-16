@@ -94,6 +94,10 @@ const products: Product[] = [
     desc: "Классическая форма для аллей и пешеходных дорожек. Равномерное рассеивание света, защита IP65.",
     gallery: [
       "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/48c57736-63a3-4fa7-97b2-5bbbc08ee59f.jpeg",
+      "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/c1e8626b-da35-4750-84ef-ead543ea708b.jpeg",
+      "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/a32ceeea-cb0c-4ff9-826d-025f74eab3ac.jpeg",
+      "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/4cdecf6a-3595-4da1-8f40-eadaf6a1c30e.jpeg",
+      "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/8e46ab9d-c14a-49c2-9997-7f009d661037.jpeg",
     ],
   },
   {
