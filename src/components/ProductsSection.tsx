@@ -1,4 +1,4 @@
-import { X, CheckCircle, Paperclip } from "lucide-react"
+import { X, CheckCircle, Paperclip, Zap, Shield, Thermometer, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useImperativeHandle, forwardRef, useRef } from "react"
 
@@ -8,6 +8,13 @@ const UPLOAD_URL = "https://functions.poehali.dev/2e76e395-e976-4652-b649-6e22e1
 interface ModalState {
   open: boolean
   product: string
+}
+
+interface Product {
+  name: string
+  img: string
+  desc: string
+  specs?: { label: string; value: string }[]
 }
 
 export interface ProductsSectionRef {
@@ -70,7 +77,16 @@ const useRequestForm = () => {
   return { name, setName, phone, setPhone, message, setMessage, file, setFile, loading, success, error, reset, submit }
 }
 
-const products = [
+const DEFAULT_SPECS = [
+  { label: "Степень защиты", value: "IP65" },
+  { label: "Мощность", value: "8–80 Вт" },
+  { label: "Цвет корпуса", value: "RAL по запросу" },
+  { label: "Температура", value: "−40°C до +50°C" },
+  { label: "Срок службы", value: "50 000 ч" },
+  { label: "Гарантия", value: "3 года" },
+]
+
+const products: Product[] = [
   {
     name: "OstovPark C1-8",
     img: "https://extrl.ru/upload/resize_cache/iblock/313/hcc61bmu12vqibbeccf3jhrokzfbr8wa/1000_540_1/ParkRay%20BL1A%20L1000_300.4373%20(1152%D1%851080).png",
@@ -133,8 +149,11 @@ const products = [
   },
 ]
 
+const SPEC_ICONS = [Shield, Zap, Sun, Thermometer, Sun, Shield]
+
 const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
   const [modal, setModal] = useState<ModalState>({ open: false, product: "" })
+  const [productCard, setProductCard] = useState<Product | null>(null)
   const form = useRequestForm()
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -148,10 +167,83 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
     form.reset()
   }
 
+  const openProductCard = (product: Product) => {
+    setProductCard(product)
+  }
+
+  const closeProductCard = () => {
+    setProductCard(null)
+  }
+
+  const handleRequestFromCard = () => {
+    if (!productCard) return
+    closeProductCard()
+    openModal(`Парковый светодиодный светильник ${productCard.name}`)
+  }
+
   useImperativeHandle(ref, () => ({ openModal }))
+
+  const specs = productCard?.specs ?? DEFAULT_SPECS
 
   return (
     <>
+      {/* Карточка товара */}
+      {productCard && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={closeProductCard} />
+          <div className="relative w-full max-w-2xl bg-[#1e2a40] ring-1 ring-white/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
+            <button
+              onClick={closeProductCard}
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Фото */}
+            <div className="md:w-2/5 bg-white/10 flex items-center justify-center p-8 min-h-[220px]">
+              <img
+                src={productCard.img}
+                alt={productCard.name}
+                className="w-full max-h-64 object-contain"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+              />
+            </div>
+
+            {/* Контент */}
+            <div className="md:w-3/5 p-6 md:p-8 flex flex-col overflow-y-auto">
+              <div className="text-xs font-semibold text-white/50 uppercase tracking-widest mb-2">Серия OstovPark</div>
+              <h3 className="text-2xl font-bold mb-2">Парковый светодиодный светильник</h3>
+              <p className="text-lg font-semibold text-white/70 mb-4">{productCard.name}</p>
+              <p className="text-white/75 text-sm leading-relaxed mb-6">{productCard.desc}</p>
+
+              {/* Характеристики */}
+              <div className="grid grid-cols-2 gap-2 mb-6">
+                {specs.map((spec, i) => {
+                  const Icon = SPEC_ICONS[i % SPEC_ICONS.length]
+                  return (
+                    <div key={spec.label} className="flex items-start gap-2 bg-white/5 rounded-xl p-3">
+                      <Icon className="w-4 h-4 text-white/40 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="text-xs text-white/40 mb-0.5">{spec.label}</div>
+                        <div className="text-sm font-medium text-white">{spec.value}</div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              <Button
+                onClick={handleRequestFromCard}
+                className="w-full bg-white text-black hover:bg-white/90 rounded-xl py-3 text-base font-semibold mt-auto"
+              >
+                Запросить цену
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Форма заявки */}
       {modal.open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
@@ -262,7 +354,11 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {products.map((product) => (
-                <div key={product.name} className="rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur overflow-hidden flex flex-col">
+                <div
+                  key={product.name}
+                  className="rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur overflow-hidden flex flex-col cursor-pointer hover:bg-white/15 hover:ring-white/40 hover:scale-[1.02] transition-all duration-200"
+                  onClick={() => openProductCard(product)}
+                >
                   <div className="bg-white/15 h-52 overflow-hidden">
                     <img
                       src={product.img}
@@ -276,7 +372,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                     <h3 className="text-lg font-semibold mb-3">Парковый светодиодный светильник {product.name}</h3>
                     <p className="text-white/85 text-sm leading-relaxed flex-1">{product.desc}</p>
                     <Button
-                      onClick={() => openModal(`Парковый светодиодный светильник ${product.name}`)}
+                      onClick={(e) => { e.stopPropagation(); openModal(`Парковый светодиодный светильник ${product.name}`) }}
                       className="mt-4 w-full bg-white/20 hover:bg-white/30 text-white border-0 rounded-lg text-sm"
                     >
                       Запросить цену
