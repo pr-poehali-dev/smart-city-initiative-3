@@ -15,6 +15,7 @@ interface Product {
   img: string
   desc: string
   specs?: { label: string; value: string }[]
+  gallery?: string[]
 }
 
 export interface ProductsSectionRef {
@@ -91,6 +92,9 @@ const products: Product[] = [
     name: "OstovPark C1-8",
     img: "https://extrl.ru/upload/resize_cache/iblock/313/hcc61bmu12vqibbeccf3jhrokzfbr8wa/1000_540_1/ParkRay%20BL1A%20L1000_300.4373%20(1152%D1%851080).png",
     desc: "Классическая форма для аллей и пешеходных дорожек. Равномерное рассеивание света, защита IP65.",
+    gallery: [
+      "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/48c57736-63a3-4fa7-97b2-5bbbc08ee59f.jpeg",
+    ],
   },
   {
     name: "OstovPark K1-8",
@@ -154,6 +158,7 @@ const SPEC_ICONS = [Shield, Zap, Sun, Thermometer, Sun, Shield]
 const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
   const [modal, setModal] = useState<ModalState>({ open: false, product: "" })
   const [productCard, setProductCard] = useState<Product | null>(null)
+  const [galleryIndex, setGalleryIndex] = useState(0)
   const form = useRequestForm()
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -169,6 +174,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
   const openProductCard = (product: Product) => {
     setProductCard(product)
+    setGalleryIndex(0)
   }
 
   const closeProductCard = () => {
@@ -199,14 +205,37 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Фото */}
-            <div className="md:w-2/5 bg-white/10 flex items-center justify-center p-8 min-h-[220px]">
-              <img
-                src={productCard.img}
-                alt={productCard.name}
-                className="w-full max-h-64 object-contain"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-              />
+            {/* Фото + галерея */}
+            <div className="md:w-2/5 bg-white/10 flex flex-col min-h-[220px]">
+              {(() => {
+                const allPhotos = [productCard.img, ...(productCard.gallery ?? [])]
+                const current = allPhotos[galleryIndex] ?? productCard.img
+                return (
+                  <>
+                    <div className="flex-1 flex items-center justify-center p-6">
+                      <img
+                        src={current}
+                        alt={productCard.name}
+                        className="w-full max-h-64 object-contain"
+                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+                      />
+                    </div>
+                    {allPhotos.length > 1 && (
+                      <div className="flex gap-2 p-3 overflow-x-auto">
+                        {allPhotos.map((photo, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setGalleryIndex(i)}
+                            className={`shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-colors ${i === galleryIndex ? 'border-white' : 'border-white/20 hover:border-white/50'}`}
+                          >
+                            <img src={photo} alt="" className="w-full h-full object-cover" />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )
+              })()}
             </div>
 
             {/* Контент */}
