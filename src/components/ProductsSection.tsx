@@ -163,6 +163,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
   const [modal, setModal] = useState<ModalState>({ open: false, product: "" })
   const [productCard, setProductCard] = useState<Product | null>(null)
   const [galleryIndex, setGalleryIndex] = useState(0)
+  const [lightbox, setLightbox] = useState<{ photos: string[]; index: number } | null>(null)
   const form = useRequestForm()
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -197,6 +198,57 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
   return (
     <>
+      {/* Лайтбокс */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            onClick={() => setLightbox(null)}
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          {lightbox.photos.length > 1 && (
+            <>
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                onClick={(e) => { e.stopPropagation(); setLightbox(lb => lb ? { ...lb, index: (lb.index - 1 + lb.photos.length) % lb.photos.length } : null) }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                onClick={(e) => { e.stopPropagation(); setLightbox(lb => lb ? { ...lb, index: (lb.index + 1) % lb.photos.length } : null) }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </button>
+            </>
+          )}
+
+          <img
+            src={lightbox.photos[lightbox.index]}
+            alt=""
+            className="max-w-full max-h-full object-contain select-none"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          {lightbox.photos.length > 1 && (
+            <div className="absolute bottom-4 flex gap-2">
+              {lightbox.photos.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setLightbox(lb => lb ? { ...lb, index: i } : null) }}
+                  className={`w-2 h-2 rounded-full transition-colors ${i === lightbox.index ? 'bg-white' : 'bg-white/30'}`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Карточка товара */}
       {productCard && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -216,7 +268,10 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                 const current = allPhotos[galleryIndex] ?? productCard.img
                 return (
                   <>
-                    <div className="flex-1 flex items-center justify-center p-6">
+                    <div
+                      className="flex-1 flex items-center justify-center p-6 cursor-zoom-in"
+                      onClick={() => setLightbox({ photos: allPhotos, index: galleryIndex })}
+                    >
                       <img
                         src={current}
                         alt={productCard.name}
