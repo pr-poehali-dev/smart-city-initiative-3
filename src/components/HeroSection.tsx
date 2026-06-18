@@ -37,12 +37,6 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
 
         <div className="flex items-center gap-3">
           <a
-            href="mailto:ooo.ostov@mail.ru"
-            className="hidden md:block px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
-          >
-            ooo.ostov@mail.ru
-          </a>
-          <a
             href="tel:88002013733"
             className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
           >
