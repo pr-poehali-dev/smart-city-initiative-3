@@ -127,12 +127,20 @@ const ContactSection = () => {
                       <p className="text-gray-600">Остов — производитель</p>
                     </div>
                   </div>
-                  <a href="tel:88002013733">
-                    <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-lg flex items-center justify-center gap-2 py-3">
-                      <Icon name="Phone" size={16} />
-                      8 (800) 201-37-33
-                    </Button>
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a href="tel:88002013733">
+                      <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-lg flex items-center justify-center gap-2 py-3">
+                        <Icon name="Phone" size={16} />
+                        8 (800) 201-37-33
+                      </Button>
+                    </a>
+                    <a href="mailto:ooo.ostov@mail.ru">
+                      <Button variant="outline" className="w-full rounded-lg flex items-center justify-center gap-2 py-3">
+                        <Icon name="Mail" size={16} />
+                        ooo.ostov@mail.ru
+                      </Button>
+                    </a>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
@@ -164,9 +172,14 @@ const ContactSection = () => {
           <p className="text-white/50 text-sm text-center">
             © 2024 Остов. Производитель светодиодных светильников. Доставка по России и СНГ.
           </p>
-          <a href="tel:88002013733" className="text-white/70 hover:text-white transition-colors">
-            8 (800) 201-37-33
-          </a>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <a href="tel:88002013733" className="text-white/70 hover:text-white transition-colors">
+              8 (800) 201-37-33
+            </a>
+            <a href="mailto:ooo.ostov@mail.ru" className="text-white/70 hover:text-white transition-colors">
+              ooo.ostov@mail.ru
+            </a>
+          </div>
         </div>
       </footer>
     </>
