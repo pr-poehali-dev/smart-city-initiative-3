@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "name": "Remove background from image",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "url": "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/971fb578-4fbe-4740-92b7-f6f96fbdaee0.jpg",
+        "key": "nobg/ostov-park-art-1-8.png"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"url": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
