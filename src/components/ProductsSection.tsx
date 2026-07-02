@@ -14,7 +14,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
   const [productCard, setProductCard] = useState<Product | null>(null)
   const [galleryIndex, setGalleryIndex] = useState(0)
   const [lightbox, setLightbox] = useState<{ photos: string[]; index: number } | null>(null)
-  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({ ostovpark: true, ostovterra: false })
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({ ostovpark: false, ostovterra: false })
   const form = useRequestForm()
 
   const openModal = (product: string) => {
