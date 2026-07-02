@@ -155,6 +155,11 @@ const products: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/812ff3f2-0391-4f5f-9432-0fa13f82dc48.png",
     desc: "Изогнутая конструкция с одним световым блоком. Элегантный дизайн для парков и пешеходных зон.",
   },
+  {
+    name: "Остов парк модерн 4",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/db4c9eaa-27c1-4153-a6c3-feb243044768.png",
+    desc: "Опора с четырьмя направленными световыми модулями в современном дизайне. Подходит для парков, скверов и пешеходных зон.",
+  },
 ]
 
 const SPEC_ICONS = [Shield, Zap, Sun, Thermometer, Sun, Shield]
