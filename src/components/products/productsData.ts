@@ -177,23 +177,7 @@ export const ostovParkProducts: Product[] = [
   },
 ]
 
-export const ostovTerraProducts: Product[] = [
-  {
-    name: "Ostov Terra T1",
-    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
-    desc: "Грунтовый светодиодный светильник для подсветки дорожек, клумб и архитектурных элементов. Степень защиты IP67.",
-  },
-  {
-    name: "Ostov Terra T2",
-    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
-    desc: "Встраиваемый грунтовый светильник с широким углом рассеивания. Подходит для подсветки газонов и пешеходных зон.",
-  },
-  {
-    name: "Ostov Terra T3",
-    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
-    desc: "Грунтовый прожектор направленного действия для акцентной подсветки деревьев, фасадов и скульптур.",
-  },
-]
+export const ostovTerraProducts: Product[] = []
 
 export const productGroups: ProductGroup[] = [
   {
