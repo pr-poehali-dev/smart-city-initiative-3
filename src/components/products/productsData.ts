@@ -183,6 +183,15 @@ export const ostovTerraProducts: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/59fdd44f-8b17-4f9e-b4e5-999b2fb798e0.png",
     desc: "Ландшафтный светильник на штыре для установки в грунт. Направленный световой поток, поворотная головка. Подходит для подсветки клумб, дорожек и архитектурных элементов.",
   },
+  {
+    name: "Светильник ландшафтный Остов Терра Брусчатка",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/af8b4581-23fc-4a90-b27e-78f685ae35f4.png",
+    desc: "Встраиваемый светильник-брусчатка для мощения дорожек и площадок. Укладывается вровень с покрытием, степень защиты IP67. Создаёт эффектную подсветку пешеходных зон.",
+    gallery: [
+      "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/af8b4581-23fc-4a90-b27e-78f685ae35f4.png",
+      "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/a73db75c-ea19-45d3-99d8-983cd7edee0b.jpg",
+    ],
+  },
 ]
 
 export const productGroups: ProductGroup[] = [
