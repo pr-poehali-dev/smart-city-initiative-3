@@ -165,6 +165,11 @@ const products: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/db4c9eaa-27c1-4153-a6c3-feb243044768.png",
     desc: "Опора с четырьмя направленными световыми модулями в современном дизайне. Подходит для парков, скверов и пешеходных зон.",
   },
+  {
+    name: "Остов Парк Маяк 5",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
+    desc: "Декоративный bollard-светильник с ажурным узором из органических форм. Создаёт уютную атмосферу вдоль пешеходных дорожек и в парковых зонах.",
+  },
 ]
 
 const SPEC_ICONS = [Shield, Zap, Sun, Thermometer, Sun, Shield]
