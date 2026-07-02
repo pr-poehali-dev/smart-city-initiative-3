@@ -267,17 +267,17 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
       {/* Карточка товара */}
       {productCard && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={closeProductCard} />
-          <div className="relative w-full max-w-2xl bg-[#1e2a40] ring-1 ring-white/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={closeProductCard} />
+          <div className="relative w-full max-w-2xl bg-white ring-1 ring-gray-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
             <button
               onClick={closeProductCard}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 text-gray-700" />
             </button>
 
             {/* Фото + галерея */}
-            <div className="md:w-2/5 bg-white/10 flex flex-col min-h-[220px]">
+            <div className="md:w-2/5 bg-gray-50 flex flex-col min-h-[220px]">
               {(() => {
                 const allPhotos = [productCard.img, ...(productCard.gallery ?? [])]
                 const current = allPhotos[galleryIndex] ?? productCard.img
@@ -300,7 +300,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                           <button
                             key={i}
                             onClick={() => setGalleryIndex(i)}
-                            className={`shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-colors ${i === galleryIndex ? 'border-white' : 'border-white/20 hover:border-white/50'}`}
+                            className={`shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-colors ${i === galleryIndex ? 'border-gray-800' : 'border-gray-200 hover:border-gray-400'}`}
                           >
                             <img src={photo} alt="" className="w-full h-full object-cover" />
                           </button>
@@ -314,21 +314,21 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
             {/* Контент */}
             <div className="md:w-3/5 p-6 md:p-8 flex flex-col overflow-y-auto">
-              <div className="text-xs font-semibold text-white/50 uppercase tracking-widest mb-2">Серия OstovPark</div>
-              <h3 className="text-2xl font-bold mb-2">Парковый светодиодный светильник</h3>
-              <p className="text-lg font-semibold text-white/70 mb-4">{productCard.name}</p>
-              <p className="text-white/75 text-sm leading-relaxed mb-6">{productCard.desc}</p>
+              <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Серия OstovPark</div>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Парковый светодиодный светильник</h3>
+              <p className="text-lg font-semibold text-gray-600 mb-4">{productCard.name}</p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6">{productCard.desc}</p>
 
               {/* Характеристики */}
               <div className="grid grid-cols-2 gap-2 mb-6">
                 {specs.map((spec, i) => {
                   const Icon = SPEC_ICONS[i % SPEC_ICONS.length]
                   return (
-                    <div key={spec.label} className="flex items-start gap-2 bg-white/5 rounded-xl p-3">
-                      <Icon className="w-4 h-4 text-white/40 mt-0.5 shrink-0" />
+                    <div key={spec.label} className="flex items-start gap-2 bg-gray-50 ring-1 ring-gray-200 rounded-xl p-3">
+                      <Icon className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
                       <div>
-                        <div className="text-xs text-white/40 mb-0.5">{spec.label}</div>
-                        <div className="text-sm font-medium text-white">{spec.value}</div>
+                        <div className="text-xs text-gray-400 mb-0.5">{spec.label}</div>
+                        <div className="text-sm font-medium text-gray-900">{spec.value}</div>
                       </div>
                     </div>
                   )
@@ -337,7 +337,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
               <Button
                 onClick={handleRequestFromCard}
-                className="w-full bg-white text-black hover:bg-white/90 rounded-xl py-3 text-base font-semibold mt-auto"
+                className="w-full bg-gray-900 text-white hover:bg-gray-800 rounded-xl py-3 text-base font-semibold mt-auto"
               >
                 Запросить цену
               </Button>
@@ -349,63 +349,63 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
       {/* Форма заявки */}
       {modal.open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
-          <div className="relative w-full max-w-md bg-[#2a3347] ring-1 ring-white/20 rounded-3xl p-8 shadow-2xl">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={closeModal} />
+          <div className="relative w-full max-w-md bg-white ring-1 ring-gray-200 rounded-3xl p-8 shadow-2xl">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 p-2 rounded-full hover:bg-white/10 transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 text-gray-600" />
             </button>
 
             {form.success ? (
               <div className="text-center py-6">
-                <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Заявка отправлена!</h3>
-                <p className="text-white/70 mb-6">Менеджер свяжется с вами в течение рабочего дня.</p>
-                <Button onClick={closeModal} className="bg-white text-black hover:bg-white/90 rounded-full px-8">
+                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">Заявка отправлена!</h3>
+                <p className="text-gray-500 mb-6">Менеджер свяжется с вами в течение рабочего дня.</p>
+                <Button onClick={closeModal} className="bg-gray-900 text-white hover:bg-gray-800 rounded-full px-8">
                   Закрыть
                 </Button>
               </div>
             ) : (
               <>
-                <h3 className="text-2xl font-bold mb-1">Запросить цену</h3>
-                <p className="text-white/50 text-sm mb-6">{modal.product}</p>
+                <h3 className="text-2xl font-bold mb-1 text-gray-900">Запросить цену</h3>
+                <p className="text-gray-400 text-sm mb-6">{modal.product}</p>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-white/70 mb-1">Имя или организация *</label>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Имя или организация *</label>
                     <input
                       type="text"
                       value={form.name}
                       onChange={e => form.setName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 ring-1 ring-white/15 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/40"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 ring-1 ring-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
                       placeholder="Иван Иванов"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-white/70 mb-1">Телефон *</label>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Телефон *</label>
                     <input
                       type="tel"
                       value={form.phone}
                       onChange={e => form.setPhone(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 ring-1 ring-white/15 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/40"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 ring-1 ring-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
                       placeholder="+7 (___) ___-__-__"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-white/70 mb-1">Комментарий</label>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Комментарий</label>
                     <textarea
                       value={form.message}
                       onChange={e => form.setMessage(e.target.value)}
                       rows={3}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 ring-1 ring-white/15 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/40 resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 ring-1 ring-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"
                       placeholder="Количество, объект, сроки..."
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-white/70 mb-1">Прикрепить файл</label>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Прикрепить файл</label>
                     <input
                       ref={fileInputRef}
                       type="file"
@@ -416,11 +416,11 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="flex items-center gap-2 w-full px-4 py-3 rounded-xl bg-white/5 ring-1 ring-white/15 text-white/60 hover:bg-white/10 hover:text-white transition-colors text-sm text-left"
+                      className="flex items-center gap-2 w-full px-4 py-3 rounded-xl bg-gray-50 ring-1 ring-gray-200 text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors text-sm text-left"
                     >
                       <Paperclip className="w-4 h-4 shrink-0" />
                       {form.file ? (
-                        <span className="text-white truncate">{form.file.name}</span>
+                        <span className="text-gray-800 truncate">{form.file.name}</span>
                       ) : (
                         <span>Техзадание, план, фото объекта...</span>
                       )}
@@ -428,13 +428,13 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                   </div>
 
                   {form.error && (
-                    <p className="text-red-400 text-sm">{form.error}</p>
+                    <p className="text-red-500 text-sm">{form.error}</p>
                   )}
 
                   <Button
                     onClick={() => form.submit(modal.product)}
                     disabled={form.loading}
-                    className="w-full bg-white text-black hover:bg-white/90 rounded-xl py-3 text-base font-medium"
+                    className="w-full bg-gray-900 text-white hover:bg-gray-800 rounded-xl py-3 text-base font-medium"
                   >
                     {form.loading ? "Отправляем..." : "Отправить заявку"}
                   </Button>
@@ -447,10 +447,10 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur p-12">
+          <div className="rounded-3xl bg-white ring-1 ring-gray-200 shadow-sm p-12">
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Серия OstovPark</h2>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto text-pretty">
+              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance text-gray-900">Серия OstovPark</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">
                 Парковые светодиодные светильники IP65 для парков, скверов, пешеходных зон и придомовых территорий.
               </p>
             </div>
@@ -459,10 +459,10 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
               {products.map((product) => (
                 <div
                   key={product.name}
-                  className="rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur overflow-hidden flex flex-col cursor-pointer hover:bg-white/15 hover:ring-white/40 hover:scale-[1.02] transition-all duration-200"
+                  className="rounded-2xl bg-gray-50 ring-1 ring-gray-200 overflow-hidden flex flex-col cursor-pointer hover:bg-white hover:ring-gray-300 hover:shadow-md hover:scale-[1.02] transition-all duration-200"
                   onClick={() => openProductCard(product)}
                 >
-                  <div className="bg-white/15 h-52 overflow-hidden">
+                  <div className="bg-white h-52 overflow-hidden">
                     <img
                       src={product.img}
                       alt={product.name}
@@ -471,12 +471,12 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <div className="text-xs font-medium text-white/60 uppercase tracking-widest mb-2">IP65</div>
-                    <h3 className="text-lg font-semibold mb-3">Парковый светодиодный светильник {product.name}</h3>
-                    <p className="text-white/85 text-sm leading-relaxed flex-1">{product.desc}</p>
+                    <div className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-2">IP65</div>
+                    <h3 className="text-lg font-semibold mb-3 text-gray-900">Парковый светодиодный светильник {product.name}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed flex-1">{product.desc}</p>
                     <Button
                       onClick={(e) => { e.stopPropagation(); openModal(`Парковый светодиодный светильник ${product.name}`) }}
-                      className="mt-4 w-full bg-white/20 hover:bg-white/30 text-white border-0 rounded-lg text-sm"
+                      className="mt-4 w-full bg-gray-900 hover:bg-gray-800 text-white border-0 rounded-lg text-sm"
                     >
                       Запросить цену
                     </Button>
@@ -489,7 +489,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
               <a href="https://cloud.mail.ru/public/9Unf/Nw17VWLCi" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  className="bg-white text-black hover:bg-white/90 rounded-full px-12 py-4 text-lg font-semibold"
+                  className="bg-gray-900 text-white hover:bg-gray-800 rounded-full px-12 py-4 text-lg font-semibold"
                 >
                   Скачать полный каталог
                 </Button>
