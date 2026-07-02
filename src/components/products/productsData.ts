@@ -11,6 +11,13 @@ export interface Product {
   gallery?: string[]
 }
 
+export interface ProductGroup {
+  id: string
+  title: string
+  description: string
+  products: Product[]
+}
+
 export interface ProductsSectionRef {
   openModal: (product: string) => void
 }
@@ -85,7 +92,7 @@ export const DEFAULT_SPECS = [
   { label: "Гарантия", value: "3 года" },
 ]
 
-export const products: Product[] = [
+export const ostovParkProducts: Product[] = [
   {
     name: "OstovPark C1-8",
     img: "https://extrl.ru/upload/resize_cache/iblock/313/hcc61bmu12vqibbeccf3jhrokzfbr8wa/1000_540_1/ParkRay%20BL1A%20L1000_300.4373%20(1152%D1%851080).png",
@@ -167,5 +174,38 @@ export const products: Product[] = [
     name: "Остов Парк Маяк 5",
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
     desc: "Декоративный bollard-светильник с ажурным узором из органических форм. Создаёт уютную атмосферу вдоль пешеходных дорожек и в парковых зонах.",
+  },
+]
+
+export const ostovTerraProducts: Product[] = [
+  {
+    name: "Ostov Terra T1",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
+    desc: "Грунтовый светодиодный светильник для подсветки дорожек, клумб и архитектурных элементов. Степень защиты IP67.",
+  },
+  {
+    name: "Ostov Terra T2",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
+    desc: "Встраиваемый грунтовый светильник с широким углом рассеивания. Подходит для подсветки газонов и пешеходных зон.",
+  },
+  {
+    name: "Ostov Terra T3",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
+    desc: "Грунтовый прожектор направленного действия для акцентной подсветки деревьев, фасадов и скульптур.",
+  },
+]
+
+export const productGroups: ProductGroup[] = [
+  {
+    id: "ostovpark",
+    title: "Серия OstovPark",
+    description: "Парковые светодиодные светильники IP65 для парков, скверов, пешеходных зон и придомовых территорий.",
+    products: ostovParkProducts,
+  },
+  {
+    id: "ostovterra",
+    title: "Серия Ostov Terra",
+    description: "Грунтовые и встраиваемые светодиодные светильники IP67 для ландшафтного освещения и архитектурной подсветки.",
+    products: ostovTerraProducts,
   },
 ]
