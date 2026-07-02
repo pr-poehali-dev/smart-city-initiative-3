@@ -35,7 +35,7 @@ const FaqSection = () => {
   return (
     <section className="relative z-10 py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-white ring-1 ring-gray-200 shadow-sm p-12">
+        <div className="rounded-3xl bg-white ring-1 ring-gray-300 shadow-lg p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance text-gray-900">Частые вопросы</h2>
@@ -45,7 +45,7 @@ const FaqSection = () => {
             </div>
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="rounded-2xl bg-gray-50 ring-1 ring-gray-200 overflow-hidden">
+                <div key={index} className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 overflow-hidden shadow-sm">
                   <button
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
                     className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"

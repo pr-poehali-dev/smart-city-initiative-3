@@ -447,7 +447,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
 
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-3xl bg-white ring-1 ring-gray-200 shadow-sm p-12">
+          <div className="rounded-3xl bg-white ring-1 ring-gray-300 shadow-lg p-12">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance text-gray-900">Серия OstovPark</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">
@@ -459,7 +459,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
               {products.map((product) => (
                 <div
                   key={product.name}
-                  className="rounded-2xl bg-gray-50 ring-1 ring-gray-200 overflow-hidden flex flex-col cursor-pointer hover:bg-white hover:ring-gray-300 hover:shadow-md hover:scale-[1.02] transition-all duration-200"
+                  className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 shadow-sm overflow-hidden flex flex-col cursor-pointer hover:bg-white hover:ring-gray-400 hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
                   onClick={() => openProductCard(product)}
                 >
                   <div className="bg-white h-52 overflow-hidden">

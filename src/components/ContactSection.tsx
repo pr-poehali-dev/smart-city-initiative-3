@@ -104,7 +104,7 @@ const ContactSection = () => {
     <>
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-3xl bg-white ring-1 ring-gray-200 shadow-sm p-12">
+          <div className="rounded-3xl bg-white ring-1 ring-gray-300 shadow-lg p-12">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance text-gray-900">Свяжитесь с нами</h2>
             </div>
@@ -117,7 +117,7 @@ const ContactSection = () => {
                   Подберём светильники под ваш объект, рассчитаем проект освещения, предоставим коммерческое предложение и полный пакет документов для тендера.
                 </p>
 
-                <div className="rounded-2xl bg-gray-50 ring-1 ring-gray-200 p-6 shadow-sm">
+                <div className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 p-6 shadow-md">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
                       <Icon name="Phone" size={28} className="text-gray-700" />
@@ -144,15 +144,15 @@ const ContactSection = () => {
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="rounded-2xl bg-gray-50 ring-1 ring-gray-200 p-6 text-center">
+                  <div className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 shadow-sm p-6 text-center">
                     <div className="text-3xl font-bold mb-2 text-gray-900">10+</div>
                     <p className="text-gray-500 text-sm">лет на рынке</p>
                   </div>
-                  <div className="rounded-2xl bg-gray-50 ring-1 ring-gray-200 p-6 text-center">
+                  <div className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 shadow-sm p-6 text-center">
                     <div className="text-3xl font-bold mb-2 text-gray-900">5000+</div>
                     <p className="text-gray-500 text-sm">объектов сдано</p>
                   </div>
-                  <div className="rounded-2xl bg-gray-50 ring-1 ring-gray-200 p-6 text-center">
+                  <div className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 shadow-sm p-6 text-center">
                     <div className="text-3xl font-bold mb-2 text-gray-900">5 лет</div>
                     <p className="text-gray-500 text-sm">гарантия</p>
                   </div>
@@ -163,7 +163,7 @@ const ContactSection = () => {
         </div>
       </section>
 
-      <footer className="relative z-10 py-12 px-6 border-t border-gray-200">
+      <footer className="relative z-10 py-12 px-6 border-t border-gray-300 bg-slate-100">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Icon name="Zap" size={18} className="text-gray-700" />
