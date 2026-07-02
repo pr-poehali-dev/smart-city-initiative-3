@@ -177,7 +177,13 @@ export const ostovParkProducts: Product[] = [
   },
 ]
 
-export const ostovTerraProducts: Product[] = []
+export const ostovTerraProducts: Product[] = [
+  {
+    name: "Светильник ландшафтный Остов Терра Спарк",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/59fdd44f-8b17-4f9e-b4e5-999b2fb798e0.png",
+    desc: "Ландшафтный светильник на штыре для установки в грунт. Направленный световой поток, поворотная головка. Подходит для подсветки клумб, дорожек и архитектурных элементов.",
+  },
+]
 
 export const productGroups: ProductGroup[] = [
   {
