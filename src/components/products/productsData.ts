@@ -92,7 +92,7 @@ export const DEFAULT_SPECS = [
   { label: "Гарантия", value: "3 года" },
 ]
 
-export const OSTOVPARK_SEO_KEYWORDS = "аналог опор Сароско, Альфреско, RSLG, Хобика"
+export const OSTOVPARK_SEO_KEYWORDS = "аналог опор Сароско (Сарос Парк), Альфреско (Пушкинская серия), RSLG (B0, B1, B4, B9, B10t, B11, B12, B13, S2, S6, F1, B19, M1), Хобика"
 
 export const ostovParkProducts: Product[] = [
   {
