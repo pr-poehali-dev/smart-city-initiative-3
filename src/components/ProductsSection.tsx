@@ -91,6 +91,74 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
             <div className="space-y-6 mb-12">
               {productGroups.map((group) => {
                 const isOpen = openGroups[group.id] ?? false
+                const isOstovPark = group.id === "ostovpark"
+                const PREVIEW_COUNT = 3
+                const visibleProducts = isOstovPark && !isOpen
+                  ? group.products.slice(0, PREVIEW_COUNT)
+                  : group.products
+                const hasMore = isOstovPark && group.products.length > PREVIEW_COUNT
+
+                const renderProductCard = (product: Product) => (
+                  <div
+                    key={product.name}
+                    className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 shadow-sm overflow-hidden flex flex-col cursor-pointer hover:bg-white hover:ring-gray-400 hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
+                    onClick={() => openProductCard(product)}
+                  >
+                    <div className="bg-white h-52 overflow-hidden">
+                      <img
+                        src={product.img}
+                        alt={group.id === "ostovpark" ? `${product.name} — ${OSTOVPARK_SEO_KEYWORDS}` : product.name}
+                        className="w-full h-full object-contain p-4"
+                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-2">IP65</div>
+                      <h3 className="text-lg font-semibold mb-3 text-gray-900">{product.name}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed flex-1">{product.desc}</p>
+                      <Button
+                        onClick={(e) => { e.stopPropagation(); openModal(product.name) }}
+                        className="mt-4 w-full bg-gray-900 hover:bg-gray-800 text-white border-0 rounded-lg text-sm"
+                      >
+                        Запросить цену
+                      </Button>
+                    </div>
+                  </div>
+                )
+
+                if (isOstovPark) {
+                  return (
+                    <div key={group.id} className="rounded-2xl ring-1 ring-gray-200 overflow-hidden">
+                      <div className="p-6 bg-gray-50">
+                        <h3 className="text-2xl font-bold text-gray-900">{group.title}</h3>
+                        <p className="text-gray-500 text-sm mt-1">{group.description}</p>
+                      </div>
+
+                      <div className="p-6 pt-4 bg-white">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          {visibleProducts.map(renderProductCard)}
+                        </div>
+
+                        {hasMore && (
+                          <div className="flex justify-center mt-6">
+                            <Button
+                              onClick={() => toggleGroup(group.id)}
+                              variant="outline"
+                              className="rounded-full px-8 py-2 flex items-center gap-2"
+                            >
+                              {isOpen ? "Свернуть" : `Показать ещё (${group.products.length - PREVIEW_COUNT})`}
+                              {isOpen
+                                ? <ChevronUp className="w-4 h-4" />
+                                : <ChevronDown className="w-4 h-4" />
+                              }
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )
+                }
+
                 return (
                   <div key={group.id} className="rounded-2xl ring-1 ring-gray-200 overflow-hidden">
                     <button
@@ -112,33 +180,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                     {isOpen && (
                       <div className="p-6 pt-4 bg-white">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                          {group.products.map((product) => (
-                            <div
-                              key={product.name}
-                              className="rounded-2xl bg-slate-50 ring-1 ring-gray-300 shadow-sm overflow-hidden flex flex-col cursor-pointer hover:bg-white hover:ring-gray-400 hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
-                              onClick={() => openProductCard(product)}
-                            >
-                              <div className="bg-white h-52 overflow-hidden">
-                                <img
-                                  src={product.img}
-                                  alt={group.id === "ostovpark" ? `${product.name} — ${OSTOVPARK_SEO_KEYWORDS}` : product.name}
-                                  className="w-full h-full object-contain p-4"
-                                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                                />
-                              </div>
-                              <div className="p-6 flex flex-col flex-1">
-                                <div className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-2">IP65</div>
-                                <h3 className="text-lg font-semibold mb-3 text-gray-900">{product.name}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed flex-1">{product.desc}</p>
-                                <Button
-                                  onClick={(e) => { e.stopPropagation(); openModal(product.name) }}
-                                  className="mt-4 w-full bg-gray-900 hover:bg-gray-800 text-white border-0 rounded-lg text-sm"
-                                >
-                                  Запросить цену
-                                </Button>
-                              </div>
-                            </div>
-                          ))}
+                          {group.products.map(renderProductCard)}
                         </div>
                       </div>
                     )}
