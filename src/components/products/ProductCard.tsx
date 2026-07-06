@@ -1,6 +1,6 @@
 import { X, Zap, Shield, Thermometer, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Product, DEFAULT_SPECS } from "./productsData"
+import { Product, DEFAULT_SPECS, ostovParkProducts, OSTOVPARK_SEO_KEYWORDS } from "./productsData"
 
 const SPEC_ICONS = [Shield, Zap, Sun, Thermometer, Sun, Shield]
 
@@ -17,6 +17,8 @@ const ProductCard = ({ product, galleryIndex, onClose, onGalleryChange, onOpenLi
   const allPhotos = [product.img, ...(product.gallery ?? [])]
   const current = allPhotos[galleryIndex] ?? product.img
   const specs = product.specs ?? DEFAULT_SPECS
+  const isOstovPark = ostovParkProducts.some(p => p.name === product.name)
+  const imgAlt = isOstovPark ? `${product.name} — ${OSTOVPARK_SEO_KEYWORDS}` : product.name
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -37,7 +39,7 @@ const ProductCard = ({ product, galleryIndex, onClose, onGalleryChange, onOpenLi
           >
             <img
               src={current}
-              alt={product.name}
+              alt={imgAlt}
               className="w-full max-h-64 object-contain"
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
             />

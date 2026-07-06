@@ -1,7 +1,7 @@
 import { useState, useImperativeHandle, forwardRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, ChevronUp } from "lucide-react"
-import { productGroups, useRequestForm, ProductsSectionRef } from "./products/productsData"
+import { productGroups, useRequestForm, ProductsSectionRef, OSTOVPARK_SEO_KEYWORDS } from "./products/productsData"
 import ProductLightbox from "./products/ProductLightbox"
 import ProductCard from "./products/ProductCard"
 import RequestModal from "./products/RequestModal"
@@ -121,7 +121,7 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
                               <div className="bg-white h-52 overflow-hidden">
                                 <img
                                   src={product.img}
-                                  alt={product.name}
+                                  alt={group.id === "ostovpark" ? `${product.name} — ${OSTOVPARK_SEO_KEYWORDS}` : product.name}
                                   className="w-full h-full object-contain p-4"
                                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
                                 />
