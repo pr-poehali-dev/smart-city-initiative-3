@@ -192,6 +192,11 @@ export const ostovParkProducts: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/704c497e-ca11-4a11-9900-4943026b7ccf.png",
     desc: "Кольцевой светодиодный плафон на компактном кронштейне. Современный акцентный дизайн для парков и общественных пространств.",
   },
+  {
+    name: "OstovPark Z-4",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/ab758ae4-3fa6-4091-84c8-fd3381b40f0a.png",
+    desc: "Консольный светильник на изогнутом кронштейне с плоским плафоном. Направленный световой поток для дорожек и аллей.",
+  },
 ]
 
 export const ostovTerraProducts: Product[] = [
