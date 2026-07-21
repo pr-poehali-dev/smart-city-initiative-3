@@ -182,6 +182,11 @@ export const ostovParkProducts: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/7eb979cb-334d-4169-a1ed-7bf1550c9fed.png",
     desc: "Круглый плафон на изогнутых кронштейнах-каплях. Лаконичный дизайн для парков, скверов и придомовых территорий.",
   },
+  {
+    name: "OstovPark Z-2",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/74c45406-5edc-4dad-9f48-6bf3d71b8d81.png",
+    desc: "Плафон в форме летающей тарелки на кронштейне-дереве. Оригинальный дизайн для парков, скверов и общественных пространств.",
+  },
 ]
 
 export const ostovTerraProducts: Product[] = [
