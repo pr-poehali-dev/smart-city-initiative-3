@@ -197,6 +197,11 @@ export const ostovParkProducts: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/ab758ae4-3fa6-4091-84c8-fd3381b40f0a.png",
     desc: "Консольный светильник на изогнутом кронштейне с плоским плафоном. Направленный световой поток для дорожек и аллей.",
   },
+  {
+    name: "OstovPark Z-2-1",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/39e80ff6-271f-4ab0-bc42-f9cb2708fa46.png",
+    desc: "Круглый плафон на изящном V-образном кронштейне. Классический силуэт для парков, скверов и придомовых территорий.",
+  },
 ]
 
 export const ostovTerraProducts: Product[] = [
