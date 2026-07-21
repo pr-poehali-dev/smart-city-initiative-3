@@ -177,6 +177,11 @@ export const ostovParkProducts: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/92f09da9-78ef-429b-a43a-fa415e6db82b.png",
     desc: "Декоративный bollard-светильник с ажурным узором из органических форм. Создаёт уютную атмосферу вдоль пешеходных дорожек и в парковых зонах.",
   },
+  {
+    name: "OstovPark Z-1",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/7eb979cb-334d-4169-a1ed-7bf1550c9fed.png",
+    desc: "Круглый плафон на изогнутых кронштейнах-каплях. Лаконичный дизайн для парков, скверов и придомовых территорий.",
+  },
 ]
 
 export const ostovTerraProducts: Product[] = [
