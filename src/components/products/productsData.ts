@@ -202,6 +202,11 @@ export const ostovParkProducts: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/39e80ff6-271f-4ab0-bc42-f9cb2708fa46.png",
     desc: "Круглый плафон на изящном V-образном кронштейне. Классический силуэт для парков, скверов и придомовых территорий.",
   },
+  {
+    name: "OstovPark L-12",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/53f8b459-4113-4a15-9053-1a008e6c67e5.png",
+    desc: "Овальный плафон с направленной LED-матрицей на изогнутом кронштейне. Аэродинамичный дизайн для аллей и парковых дорожек.",
+  },
 ]
 
 export const ostovTerraProducts: Product[] = [
