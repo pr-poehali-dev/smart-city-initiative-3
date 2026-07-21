@@ -217,6 +217,11 @@ export const ostovParkProducts: Product[] = [
     img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/cbf0bb4b-573e-4b73-b300-160cc29888f7.png",
     desc: "Светильник-гриб с широкой круглой шляпкой и прозрачным цилиндрическим плафоном. Классический дизайн для парков и придомовых территорий.",
   },
+  {
+    name: "OstovPark L-11",
+    img: "https://cdn.poehali.dev/projects/45694333-96bb-4e30-b37b-6834c2922ce3/bucket/75785d2d-583d-46cc-b302-020d40c68b3e.png",
+    desc: "Уличный светильник с четырёхсекционной LED-матрицей на консольном креплении. Мощный направленный свет для дорог и парковых магистралей.",
+  },
 ]
 
 export const ostovTerraProducts: Product[] = [
