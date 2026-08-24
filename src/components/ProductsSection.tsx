@@ -1,6 +1,6 @@
 import { useState, useImperativeHandle, forwardRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ChevronDown, ChevronUp, Download } from "lucide-react"
 import { productGroups, useRequestForm, ProductsSectionRef, OSTOVPARK_SEO_KEYWORDS } from "./products/productsData"
 import ProductLightbox from "./products/ProductLightbox"
 import ProductCard from "./products/ProductCard"
@@ -86,6 +86,12 @@ const ProductsSection = forwardRef<ProductsSectionRef>((_, ref) => {
               <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">
                 Светодиодные светильники для парков, скверов, ландшафтного освещения и архитектурной подсветки.
               </p>
+              <a href="/price-list.xlsx" download>
+                <Button variant="outline" className="mt-6 rounded-full px-6 gap-2">
+                  <Download className="w-4 h-4" />
+                  Скачать прайс
+                </Button>
+              </a>
             </div>
 
             <div className="space-y-6 mb-12">
